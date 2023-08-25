@@ -36,6 +36,5 @@ Map<String, dynamic> _$$_RegistrationParamsToJson(
 
 const _$UserTypeEnumMap = {
   UserType.admin: 'admin',
-  UserType.customer: 'customer',
-  UserType.serviceProvider: 'serviceProvider',
+  UserType.employee: 'employee',
 };

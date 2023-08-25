@@ -304,24 +304,16 @@ class _$_RegistrationParams implements _RegistrationParams {
 
 abstract class _RegistrationParams implements RegistrationParams {
   factory _RegistrationParams(
-      {@JsonKey(name: 'username')
-          final String? username,
-      @JsonKey(name: 'email')
-          required final String email,
-      @JsonKey(name: 'emailVisibility')
-          final bool? emailVisibility,
-      @JsonKey(name: 'password')
-          required final String password,
-      @JsonKey(name: 'passwordConfirm')
-          required final String passwordConfirm,
-      @JsonKey(name: 'firstName')
-          required final String firstName,
-      @JsonKey(name: 'lastName')
-          required final String lastName,
-      @JsonKey(name: 'type')
-          final UserType? type,
+      {@JsonKey(name: 'username') final String? username,
+      @JsonKey(name: 'email') required final String email,
+      @JsonKey(name: 'emailVisibility') final bool? emailVisibility,
+      @JsonKey(name: 'password') required final String password,
+      @JsonKey(name: 'passwordConfirm') required final String passwordConfirm,
+      @JsonKey(name: 'firstName') required final String firstName,
+      @JsonKey(name: 'lastName') required final String lastName,
+      @JsonKey(name: 'type') final UserType? type,
       @JsonKey(name: 'isActive', defaultValue: false)
-          final bool? isActive}) = _$_RegistrationParams;
+      final bool? isActive}) = _$_RegistrationParams;
 
   factory _RegistrationParams.fromJson(Map<String, dynamic> json) =
       _$_RegistrationParams.fromJson;

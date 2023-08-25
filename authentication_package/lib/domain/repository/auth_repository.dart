@@ -1,4 +1,3 @@
-import 'package:auth_package/domain/entities/change_password_params.dart';
 import 'package:core_package/core_package.dart';
 
 import '../../auth_package.dart';

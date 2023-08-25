@@ -187,12 +187,10 @@ class _$_ChangePasswordParams implements _ChangePasswordParams {
 
 abstract class _ChangePasswordParams implements ChangePasswordParams {
   factory _ChangePasswordParams(
-      {@JsonKey(name: 'oldPassword')
-          required final String oldPassword,
-      @JsonKey(name: 'password')
-          required final String newPassword,
+      {@JsonKey(name: 'oldPassword') required final String oldPassword,
+      @JsonKey(name: 'password') required final String newPassword,
       @JsonKey(name: 'passwordConfirm')
-          required final String passwordConfirm}) = _$_ChangePasswordParams;
+      required final String passwordConfirm}) = _$_ChangePasswordParams;
 
   factory _ChangePasswordParams.fromJson(Map<String, dynamic> json) =
       _$_ChangePasswordParams.fromJson;

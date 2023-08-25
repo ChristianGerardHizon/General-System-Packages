@@ -4,7 +4,6 @@ import 'package:core_package/core_package.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../auth_package.dart';
 import '../../core/enums.dart';
-import '../../domain/entities/registration_params.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this.core);
