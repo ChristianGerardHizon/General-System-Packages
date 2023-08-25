@@ -9,9 +9,7 @@ abstract class AuthRepository {
   Future<DataState<User>> logIn(LoginParams params);
 
   Future<DataState<User>> generateOAuth2(
-    OAuth2Providers provider,
-    Function(Uri) callback,
-  );
+      OAuth2Providers provider, Function(Uri) callback);
 
   Future<void> signOut();
 
