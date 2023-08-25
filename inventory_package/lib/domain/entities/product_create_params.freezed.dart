@@ -20,12 +20,14 @@ ProductCreateParams _$ProductCreateParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductCreateParams {
-  @JsonKey(name: 'oldPassword')
-  String get oldPassword => throw _privateConstructorUsedError;
-  @JsonKey(name: 'password')
-  String get newPassword => throw _privateConstructorUsedError;
-  @JsonKey(name: 'passwordConfirm')
-  String get passwordConfirm => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
+  String get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price')
+  double get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'isPublic')
+  bool get isPublic => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,9 +42,10 @@ abstract class $ProductCreateParamsCopyWith<$Res> {
       _$ProductCreateParamsCopyWithImpl<$Res, ProductCreateParams>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'oldPassword') String oldPassword,
-      @JsonKey(name: 'password') String newPassword,
-      @JsonKey(name: 'passwordConfirm') String passwordConfirm});
+      {@JsonKey(name: 'name') String name,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'price') double price,
+      @JsonKey(name: 'isPublic') bool isPublic});
 }
 
 /// @nodoc
@@ -58,23 +61,28 @@ class _$ProductCreateParamsCopyWithImpl<$Res, $Val extends ProductCreateParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? oldPassword = null,
-    Object? newPassword = null,
-    Object? passwordConfirm = null,
+    Object? name = null,
+    Object? description = null,
+    Object? price = null,
+    Object? isPublic = null,
   }) {
     return _then(_value.copyWith(
-      oldPassword: null == oldPassword
-          ? _value.oldPassword
-          : oldPassword // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
-      passwordConfirm: null == passwordConfirm
-          ? _value.passwordConfirm
-          : passwordConfirm // ignore: cast_nullable_to_non_nullable
-              as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      isPublic: null == isPublic
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -88,9 +96,10 @@ abstract class _$$_ProductCreateParamsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'oldPassword') String oldPassword,
-      @JsonKey(name: 'password') String newPassword,
-      @JsonKey(name: 'passwordConfirm') String passwordConfirm});
+      {@JsonKey(name: 'name') String name,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'price') double price,
+      @JsonKey(name: 'isPublic') bool isPublic});
 }
 
 /// @nodoc
@@ -104,23 +113,28 @@ class __$$_ProductCreateParamsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? oldPassword = null,
-    Object? newPassword = null,
-    Object? passwordConfirm = null,
+    Object? name = null,
+    Object? description = null,
+    Object? price = null,
+    Object? isPublic = null,
   }) {
     return _then(_$_ProductCreateParams(
-      oldPassword: null == oldPassword
-          ? _value.oldPassword
-          : oldPassword // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      newPassword: null == newPassword
-          ? _value.newPassword
-          : newPassword // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
-      passwordConfirm: null == passwordConfirm
-          ? _value.passwordConfirm
-          : passwordConfirm // ignore: cast_nullable_to_non_nullable
-              as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      isPublic: null == isPublic
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -129,26 +143,30 @@ class __$$_ProductCreateParamsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ProductCreateParams implements _ProductCreateParams {
   _$_ProductCreateParams(
-      {@JsonKey(name: 'oldPassword') required this.oldPassword,
-      @JsonKey(name: 'password') required this.newPassword,
-      @JsonKey(name: 'passwordConfirm') required this.passwordConfirm});
+      {@JsonKey(name: 'name') required this.name,
+      @JsonKey(name: 'description') required this.description,
+      @JsonKey(name: 'price') required this.price,
+      @JsonKey(name: 'isPublic') required this.isPublic});
 
   factory _$_ProductCreateParams.fromJson(Map<String, dynamic> json) =>
       _$$_ProductCreateParamsFromJson(json);
 
   @override
-  @JsonKey(name: 'oldPassword')
-  final String oldPassword;
+  @JsonKey(name: 'name')
+  final String name;
   @override
-  @JsonKey(name: 'password')
-  final String newPassword;
+  @JsonKey(name: 'description')
+  final String description;
   @override
-  @JsonKey(name: 'passwordConfirm')
-  final String passwordConfirm;
+  @JsonKey(name: 'price')
+  final double price;
+  @override
+  @JsonKey(name: 'isPublic')
+  final bool isPublic;
 
   @override
   String toString() {
-    return 'ProductCreateParams(oldPassword: $oldPassword, newPassword: $newPassword, passwordConfirm: $passwordConfirm)';
+    return 'ProductCreateParams(name: $name, description: $description, price: $price, isPublic: $isPublic)';
   }
 
   @override
@@ -156,18 +174,18 @@ class _$_ProductCreateParams implements _ProductCreateParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProductCreateParams &&
-            (identical(other.oldPassword, oldPassword) ||
-                other.oldPassword == oldPassword) &&
-            (identical(other.newPassword, newPassword) ||
-                other.newPassword == newPassword) &&
-            (identical(other.passwordConfirm, passwordConfirm) ||
-                other.passwordConfirm == passwordConfirm));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.isPublic, isPublic) ||
+                other.isPublic == isPublic));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, oldPassword, newPassword, passwordConfirm);
+      Object.hash(runtimeType, name, description, price, isPublic);
 
   @JsonKey(ignore: true)
   @override
@@ -186,23 +204,27 @@ class _$_ProductCreateParams implements _ProductCreateParams {
 
 abstract class _ProductCreateParams implements ProductCreateParams {
   factory _ProductCreateParams(
-      {@JsonKey(name: 'oldPassword') required final String oldPassword,
-      @JsonKey(name: 'password') required final String newPassword,
-      @JsonKey(name: 'passwordConfirm')
-      required final String passwordConfirm}) = _$_ProductCreateParams;
+          {@JsonKey(name: 'name') required final String name,
+          @JsonKey(name: 'description') required final String description,
+          @JsonKey(name: 'price') required final double price,
+          @JsonKey(name: 'isPublic') required final bool isPublic}) =
+      _$_ProductCreateParams;
 
   factory _ProductCreateParams.fromJson(Map<String, dynamic> json) =
       _$_ProductCreateParams.fromJson;
 
   @override
-  @JsonKey(name: 'oldPassword')
-  String get oldPassword;
+  @JsonKey(name: 'name')
+  String get name;
   @override
-  @JsonKey(name: 'password')
-  String get newPassword;
+  @JsonKey(name: 'description')
+  String get description;
   @override
-  @JsonKey(name: 'passwordConfirm')
-  String get passwordConfirm;
+  @JsonKey(name: 'price')
+  double get price;
+  @override
+  @JsonKey(name: 'isPublic')
+  bool get isPublic;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCreateParamsCopyWith<_$_ProductCreateParams> get copyWith =>

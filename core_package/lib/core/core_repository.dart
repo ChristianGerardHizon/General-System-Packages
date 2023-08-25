@@ -17,14 +17,5 @@ class CoreRepository {
   */
   RecordService get authCol => server.collection(config.users);
 
-  RecordService get adminServiceProvidersCol =>
-      server.collection(config.adminServiceProviders);
-
-  RecordService get servicesCol => server.collection(config.services);
-
-  RecordService get serviceProvidersCol =>
-      server.collection(config.serviceProviders);
-
-  RecordService get spUsersCol =>
-      server.collection(config.serviceProviderUsers);
+  RecordService get productCol => server.collection(config.products);
 }

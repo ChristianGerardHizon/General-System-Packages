@@ -8,10 +8,13 @@ part 'product_list_model.g.dart';
 @freezed
 class ProductListModel with _$ProductListModel {
   factory ProductListModel({
+    // default
     @JsonKey(name: 'page') required int page,
     @JsonKey(name: 'perPage') required int perPage,
     @JsonKey(name: 'totalPages') required int totalPages,
     @JsonKey(name: 'totalItems') required int totalItems,
+
+    // custom
     @JsonKey(name: 'items') required List<ProductModel> items,
   }) = _ProductListModel;
   const ProductListModel._();

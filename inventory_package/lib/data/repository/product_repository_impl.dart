@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:inventory_package/data/models/product/product_subscription_model.dart';
 import 'package:inventory_package/inventory_package.dart';
 import 'package:core_package/core_package.dart';
 
@@ -9,7 +8,7 @@ class ProductRepositoryImpl implements ProductRepository {
 
   final CoreRepository core;
 
-  RecordService get _col => core.servicesCol;
+  RecordService get _col => core.productCol;
 
   // Reusable error handling function
   DataState<T> _handleError<T>(dynamic e, String methodName) {
@@ -82,14 +81,24 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<DataState<Stream<ProductSubscriptionModel>>> stream(String id) async {
+  Future<DataState<Stream<ProductSubscriptionModel>>> subscribe(
+      String topic) async {
     try {
       final controller = StreamController<ProductSubscriptionModel>();
-
-      _col.subscribe(id, (e) {
+      _col.subscribe(topic, (e) {
         controller.sink.add(ProductSubscriptionModel.fromJson(e.toJson()));
       });
       return DataSuccess(controller.stream);
+    } catch (e) {
+      return _handleError(e, 'subscribe');
+    }
+  }
+
+  @override
+  Future<DataState<void>> unsubscribe(String topic) async {
+    try {
+      await _col.unsubscribe(topic);
+      return const DataSuccess(null);
     } catch (e) {
       return _handleError(e, 'subscribe');
     }

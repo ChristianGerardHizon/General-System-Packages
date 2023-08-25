@@ -8,10 +8,12 @@ part 'product_subscription_model.g.dart';
 class ProductSubscriptionModel with _$ProductSubscriptionModel {
   const factory ProductSubscriptionModel({
     @JsonKey(name: 'action') required String action,
-    @JsonKey(name: 'record') required ProductModel data,
+    @JsonKey(name: 'record') required ProductModel record,
   }) = _ProductSubscriptionModel;
 
   const ProductSubscriptionModel._();
+
+  ProductSubscription toEntity() => ProductSubscription.fromJson(toJson());
 
   factory ProductSubscriptionModel.fromJson(Map<String, dynamic> json) =>
       _$ProductSubscriptionModelFromJson(json);

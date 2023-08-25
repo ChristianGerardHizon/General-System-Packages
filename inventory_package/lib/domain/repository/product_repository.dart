@@ -1,6 +1,5 @@
 import 'package:core_package/core_package.dart';
-
-import '../../inventory_package.dart';
+import 'package:inventory_package/inventory_package.dart';
 
 abstract class ProductRepository {
   Future<DataState<Product>> get(String id);
@@ -13,5 +12,7 @@ abstract class ProductRepository {
 
   Future<DataState<void>> delete(String id);
 
-  Future<DataState<Stream<ProductSubscriptionModel>>> stream(String id);
+  Future<DataState<Stream<ProductSubscriptionModel>>> subscribe(String topic);
+
+  Future<DataState<void>> unsubscribe(String topic);
 }

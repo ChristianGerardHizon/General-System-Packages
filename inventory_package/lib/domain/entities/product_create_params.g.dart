@@ -9,15 +9,17 @@ part of 'product_create_params.dart';
 _$_ProductCreateParams _$$_ProductCreateParamsFromJson(
         Map<String, dynamic> json) =>
     _$_ProductCreateParams(
-      oldPassword: json['oldPassword'] as String,
-      newPassword: json['password'] as String,
-      passwordConfirm: json['passwordConfirm'] as String,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      price: (json['price'] as num).toDouble(),
+      isPublic: json['isPublic'] as bool,
     );
 
 Map<String, dynamic> _$$_ProductCreateParamsToJson(
         _$_ProductCreateParams instance) =>
     <String, dynamic>{
-      'oldPassword': instance.oldPassword,
-      'password': instance.newPassword,
-      'passwordConfirm': instance.passwordConfirm,
+      'name': instance.name,
+      'description': instance.description,
+      'price': instance.price,
+      'isPublic': instance.isPublic,
     };

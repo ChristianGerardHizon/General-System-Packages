@@ -20,6 +20,7 @@ ProductListModel _$ProductListModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductListModel {
+// default
   @JsonKey(name: 'page')
   int get page => throw _privateConstructorUsedError;
   @JsonKey(name: 'perPage')
@@ -27,7 +28,7 @@ mixin _$ProductListModel {
   @JsonKey(name: 'totalPages')
   int get totalPages => throw _privateConstructorUsedError;
   @JsonKey(name: 'totalItems')
-  int get totalItems => throw _privateConstructorUsedError;
+  int get totalItems => throw _privateConstructorUsedError; // custom
   @JsonKey(name: 'items')
   List<ProductModel> get items => throw _privateConstructorUsedError;
 
@@ -168,6 +169,7 @@ class _$_ProductListModel extends _ProductListModel {
   factory _$_ProductListModel.fromJson(Map<String, dynamic> json) =>
       _$$_ProductListModelFromJson(json);
 
+// default
   @override
   @JsonKey(name: 'page')
   final int page;
@@ -180,7 +182,9 @@ class _$_ProductListModel extends _ProductListModel {
   @override
   @JsonKey(name: 'totalItems')
   final int totalItems;
+// custom
   final List<ProductModel> _items;
+// custom
   @override
   @JsonKey(name: 'items')
   List<ProductModel> get items {
@@ -240,7 +244,7 @@ abstract class _ProductListModel extends ProductListModel {
   factory _ProductListModel.fromJson(Map<String, dynamic> json) =
       _$_ProductListModel.fromJson;
 
-  @override
+  @override // default
   @JsonKey(name: 'page')
   int get page;
   @override
@@ -252,7 +256,7 @@ abstract class _ProductListModel extends ProductListModel {
   @override
   @JsonKey(name: 'totalItems')
   int get totalItems;
-  @override
+  @override // custom
   @JsonKey(name: 'items')
   List<ProductModel> get items;
   @override

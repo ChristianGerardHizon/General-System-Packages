@@ -20,22 +20,23 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductModel {
+// default
   @JsonKey(name: 'id')
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'collectionId')
   String get collectionId => throw _privateConstructorUsedError;
   @JsonKey(name: 'collectionName')
   String get collectionName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created')
+  DateTime get created => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated')
+  DateTime get updated => throw _privateConstructorUsedError; // custom
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
   String get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'isPublic')
   bool get isPublic => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created')
-  DateTime get created => throw _privateConstructorUsedError;
-  @JsonKey(name: 'updated')
-  DateTime get updated => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,11 +54,11 @@ abstract class $ProductModelCopyWith<$Res> {
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'collectionId') String collectionId,
       @JsonKey(name: 'collectionName') String collectionName,
+      @JsonKey(name: 'created') DateTime created,
+      @JsonKey(name: 'updated') DateTime updated,
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
-      @JsonKey(name: 'isPublic') bool isPublic,
-      @JsonKey(name: 'created') DateTime created,
-      @JsonKey(name: 'updated') DateTime updated});
+      @JsonKey(name: 'isPublic') bool isPublic});
 }
 
 /// @nodoc
@@ -76,11 +77,11 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
     Object? id = null,
     Object? collectionId = null,
     Object? collectionName = null,
+    Object? created = null,
+    Object? updated = null,
     Object? name = null,
     Object? description = null,
     Object? isPublic = null,
-    Object? created = null,
-    Object? updated = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -95,6 +96,14 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
               as String,
+      created: null == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updated: null == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -107,14 +116,6 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.isPublic
           : isPublic // ignore: cast_nullable_to_non_nullable
               as bool,
-      created: null == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updated: null == updated
-          ? _value.updated
-          : updated // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ) as $Val);
   }
 }
@@ -131,11 +132,11 @@ abstract class _$$_ProductModelCopyWith<$Res>
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'collectionId') String collectionId,
       @JsonKey(name: 'collectionName') String collectionName,
+      @JsonKey(name: 'created') DateTime created,
+      @JsonKey(name: 'updated') DateTime updated,
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
-      @JsonKey(name: 'isPublic') bool isPublic,
-      @JsonKey(name: 'created') DateTime created,
-      @JsonKey(name: 'updated') DateTime updated});
+      @JsonKey(name: 'isPublic') bool isPublic});
 }
 
 /// @nodoc
@@ -152,11 +153,11 @@ class __$$_ProductModelCopyWithImpl<$Res>
     Object? id = null,
     Object? collectionId = null,
     Object? collectionName = null,
+    Object? created = null,
+    Object? updated = null,
     Object? name = null,
     Object? description = null,
     Object? isPublic = null,
-    Object? created = null,
-    Object? updated = null,
   }) {
     return _then(_$_ProductModel(
       id: null == id
@@ -171,6 +172,14 @@ class __$$_ProductModelCopyWithImpl<$Res>
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
               as String,
+      created: null == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updated: null == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -183,14 +192,6 @@ class __$$_ProductModelCopyWithImpl<$Res>
           ? _value.isPublic
           : isPublic // ignore: cast_nullable_to_non_nullable
               as bool,
-      created: null == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updated: null == updated
-          ? _value.updated
-          : updated // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ));
   }
 }
@@ -202,16 +203,17 @@ class _$_ProductModel extends _ProductModel {
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'collectionId') required this.collectionId,
       @JsonKey(name: 'collectionName') required this.collectionName,
+      @JsonKey(name: 'created') required this.created,
+      @JsonKey(name: 'updated') required this.updated,
       @JsonKey(name: 'name') required this.name,
       @JsonKey(name: 'description') required this.description,
-      @JsonKey(name: 'isPublic') required this.isPublic,
-      @JsonKey(name: 'created') required this.created,
-      @JsonKey(name: 'updated') required this.updated})
+      @JsonKey(name: 'isPublic') required this.isPublic})
       : super._();
 
   factory _$_ProductModel.fromJson(Map<String, dynamic> json) =>
       _$$_ProductModelFromJson(json);
 
+// default
   @override
   @JsonKey(name: 'id')
   final String id;
@@ -222,6 +224,13 @@ class _$_ProductModel extends _ProductModel {
   @JsonKey(name: 'collectionName')
   final String collectionName;
   @override
+  @JsonKey(name: 'created')
+  final DateTime created;
+  @override
+  @JsonKey(name: 'updated')
+  final DateTime updated;
+// custom
+  @override
   @JsonKey(name: 'name')
   final String name;
   @override
@@ -230,16 +239,10 @@ class _$_ProductModel extends _ProductModel {
   @override
   @JsonKey(name: 'isPublic')
   final bool isPublic;
-  @override
-  @JsonKey(name: 'created')
-  final DateTime created;
-  @override
-  @JsonKey(name: 'updated')
-  final DateTime updated;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, collectionId: $collectionId, collectionName: $collectionName, name: $name, description: $description, isPublic: $isPublic, created: $created, updated: $updated)';
+    return 'ProductModel(id: $id, collectionId: $collectionId, collectionName: $collectionName, created: $created, updated: $updated, name: $name, description: $description, isPublic: $isPublic)';
   }
 
   @override
@@ -252,19 +255,19 @@ class _$_ProductModel extends _ProductModel {
                 other.collectionId == collectionId) &&
             (identical(other.collectionName, collectionName) ||
                 other.collectionName == collectionName) &&
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.updated, updated) || other.updated == updated) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.isPublic, isPublic) ||
-                other.isPublic == isPublic) &&
-            (identical(other.created, created) || other.created == created) &&
-            (identical(other.updated, updated) || other.updated == updated));
+                other.isPublic == isPublic));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, collectionId, collectionName,
-      name, description, isPublic, created, updated);
+      created, updated, name, description, isPublic);
 
   @JsonKey(ignore: true)
   @override
@@ -285,18 +288,18 @@ abstract class _ProductModel extends ProductModel {
           {@JsonKey(name: 'id') required final String id,
           @JsonKey(name: 'collectionId') required final String collectionId,
           @JsonKey(name: 'collectionName') required final String collectionName,
+          @JsonKey(name: 'created') required final DateTime created,
+          @JsonKey(name: 'updated') required final DateTime updated,
           @JsonKey(name: 'name') required final String name,
           @JsonKey(name: 'description') required final String description,
-          @JsonKey(name: 'isPublic') required final bool isPublic,
-          @JsonKey(name: 'created') required final DateTime created,
-          @JsonKey(name: 'updated') required final DateTime updated}) =
+          @JsonKey(name: 'isPublic') required final bool isPublic}) =
       _$_ProductModel;
   _ProductModel._() : super._();
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
       _$_ProductModel.fromJson;
 
-  @override
+  @override // default
   @JsonKey(name: 'id')
   String get id;
   @override
@@ -306,6 +309,12 @@ abstract class _ProductModel extends ProductModel {
   @JsonKey(name: 'collectionName')
   String get collectionName;
   @override
+  @JsonKey(name: 'created')
+  DateTime get created;
+  @override
+  @JsonKey(name: 'updated')
+  DateTime get updated;
+  @override // custom
   @JsonKey(name: 'name')
   String get name;
   @override
@@ -314,12 +323,6 @@ abstract class _ProductModel extends ProductModel {
   @override
   @JsonKey(name: 'isPublic')
   bool get isPublic;
-  @override
-  @JsonKey(name: 'created')
-  DateTime get created;
-  @override
-  @JsonKey(name: 'updated')
-  DateTime get updated;
   @override
   @JsonKey(ignore: true)
   _$$_ProductModelCopyWith<_$_ProductModel> get copyWith =>
