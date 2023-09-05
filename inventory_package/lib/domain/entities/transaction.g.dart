@@ -17,6 +17,7 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
       unitPrice: (json['unitPrice'] as num).toDouble(),
       customerName: json['customerName'] as String,
       isVoided: json['isVoided'] as bool? ?? false,
+      userId: json['userId'] as String,
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
       'unitPrice': instance.unitPrice,
       'customerName': instance.customerName,
       'isVoided': instance.isVoided,
+      'userId': instance.userId,
     };

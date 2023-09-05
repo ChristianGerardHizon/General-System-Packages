@@ -19,8 +19,6 @@ dependencies:
   mocktail: ^0.3.0
 
 dev_dependencies:
-  core_package:
-    path: ../core_package
   build_runner: any
   flutter_lints: ^2.0.0
   flutter_test:

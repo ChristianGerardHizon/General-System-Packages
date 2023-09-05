@@ -67,11 +67,12 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<DataState<PBRecord<List<Product>>>> list({PageOptions? page}) async {
+  Future<DataState<PBRecord<List<Product>>>> list(
+      {PageOptions? options}) async {
     try {
       final result = await _col.getList(
-        filter: page?.filter,
-        page: page?.start ?? 1,
+        filter: options?.filter,
+        page: options?.start ?? 1,
       );
       final model = ProductListModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
@@ -80,27 +81,27 @@ class ProductRepositoryImpl implements ProductRepository {
     }
   }
 
-  @override
-  Future<DataState<Stream<ProductSubscriptionModel>>> subscribe(
-      String topic) async {
-    try {
-      final controller = StreamController<ProductSubscriptionModel>();
-      _col.subscribe(topic, (e) {
-        controller.sink.add(ProductSubscriptionModel.fromJson(e.toJson()));
-      });
-      return DataSuccess(controller.stream);
-    } catch (e) {
-      return _handleError(e, 'subscribe');
-    }
-  }
+  // @override
+  // Future<DataState<Stream<ProductSubscriptionModel>>> subscribe(
+  //     String topic) async {
+  //   try {
+  //     final controller = StreamController<ProductSubscriptionModel>();
+  //     _col.subscribe(topic, (e) {
+  //       controller.sink.add(ProductSubscriptionModel.fromJson(e.toJson()));
+  //     });
+  //     return DataSuccess(controller.stream);
+  //   } catch (e) {
+  //     return _handleError(e, 'subscribe');
+  //   }
+  // }
 
-  @override
-  Future<DataState<void>> unsubscribe(String topic) async {
-    try {
-      await _col.unsubscribe(topic);
-      return const DataSuccess(null);
-    } catch (e) {
-      return _handleError(e, 'subscribe');
-    }
-  }
+  // @override
+  // Future<DataState<void>> unsubscribe(String topic) async {
+  //   try {
+  //     await _col.unsubscribe(topic);
+  //     return const DataSuccess(null);
+  //   } catch (e) {
+  //     return _handleError(e, 'subscribe');
+  //   }
+  // }
 }

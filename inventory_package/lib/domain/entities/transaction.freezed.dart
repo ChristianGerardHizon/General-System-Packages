@@ -39,6 +39,8 @@ mixin _$Transaction {
   String get customerName => throw _privateConstructorUsedError;
   @JsonKey(name: 'isVoided', defaultValue: false)
   bool get isVoided => throw _privateConstructorUsedError;
+  @JsonKey(name: 'userId')
+  String get userId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,7 +63,8 @@ abstract class $TransactionCopyWith<$Res> {
       @JsonKey(name: 'quantity') int quantity,
       @JsonKey(name: 'unitPrice') double unitPrice,
       @JsonKey(name: 'customerName') String customerName,
-      @JsonKey(name: 'isVoided', defaultValue: false) bool isVoided});
+      @JsonKey(name: 'isVoided', defaultValue: false) bool isVoided,
+      @JsonKey(name: 'userId') String userId});
 }
 
 /// @nodoc
@@ -86,6 +89,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
     Object? unitPrice = null,
     Object? customerName = null,
     Object? isVoided = null,
+    Object? userId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -124,6 +128,10 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
           ? _value.isVoided
           : isVoided // ignore: cast_nullable_to_non_nullable
               as bool,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -145,7 +153,8 @@ abstract class _$$_TransactionCopyWith<$Res>
       @JsonKey(name: 'quantity') int quantity,
       @JsonKey(name: 'unitPrice') double unitPrice,
       @JsonKey(name: 'customerName') String customerName,
-      @JsonKey(name: 'isVoided', defaultValue: false) bool isVoided});
+      @JsonKey(name: 'isVoided', defaultValue: false) bool isVoided,
+      @JsonKey(name: 'userId') String userId});
 }
 
 /// @nodoc
@@ -168,6 +177,7 @@ class __$$_TransactionCopyWithImpl<$Res>
     Object? unitPrice = null,
     Object? customerName = null,
     Object? isVoided = null,
+    Object? userId = null,
   }) {
     return _then(_$_Transaction(
       id: null == id
@@ -206,6 +216,10 @@ class __$$_TransactionCopyWithImpl<$Res>
           ? _value.isVoided
           : isVoided // ignore: cast_nullable_to_non_nullable
               as bool,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -222,7 +236,8 @@ class _$_Transaction implements _Transaction {
       @JsonKey(name: 'quantity') required this.quantity,
       @JsonKey(name: 'unitPrice') required this.unitPrice,
       @JsonKey(name: 'customerName') required this.customerName,
-      @JsonKey(name: 'isVoided', defaultValue: false) required this.isVoided});
+      @JsonKey(name: 'isVoided', defaultValue: false) required this.isVoided,
+      @JsonKey(name: 'userId') required this.userId});
 
   factory _$_Transaction.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionFromJson(json);
@@ -256,10 +271,13 @@ class _$_Transaction implements _Transaction {
   @override
   @JsonKey(name: 'isVoided', defaultValue: false)
   final bool isVoided;
+  @override
+  @JsonKey(name: 'userId')
+  final String userId;
 
   @override
   String toString() {
-    return 'Transaction(id: $id, collectionId: $collectionId, collectionName: $collectionName, created: $created, updated: $updated, quantity: $quantity, unitPrice: $unitPrice, customerName: $customerName, isVoided: $isVoided)';
+    return 'Transaction(id: $id, collectionId: $collectionId, collectionName: $collectionName, created: $created, updated: $updated, quantity: $quantity, unitPrice: $unitPrice, customerName: $customerName, isVoided: $isVoided, userId: $userId)';
   }
 
   @override
@@ -281,13 +299,14 @@ class _$_Transaction implements _Transaction {
             (identical(other.customerName, customerName) ||
                 other.customerName == customerName) &&
             (identical(other.isVoided, isVoided) ||
-                other.isVoided == isVoided));
+                other.isVoided == isVoided) &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, collectionId, collectionName,
-      created, updated, quantity, unitPrice, customerName, isVoided);
+      created, updated, quantity, unitPrice, customerName, isVoided, userId);
 
   @JsonKey(ignore: true)
   @override
@@ -314,7 +333,8 @@ abstract class _Transaction implements Transaction {
       @JsonKey(name: 'unitPrice') required final double unitPrice,
       @JsonKey(name: 'customerName') required final String customerName,
       @JsonKey(name: 'isVoided', defaultValue: false)
-      required final bool isVoided}) = _$_Transaction;
+      required final bool isVoided,
+      @JsonKey(name: 'userId') required final String userId}) = _$_Transaction;
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$_Transaction.fromJson;
@@ -346,6 +366,9 @@ abstract class _Transaction implements Transaction {
   @override
   @JsonKey(name: 'isVoided', defaultValue: false)
   bool get isVoided;
+  @override
+  @JsonKey(name: 'userId')
+  String get userId;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>

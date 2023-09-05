@@ -12,12 +12,17 @@ class AuthRepositoryImpl implements AuthRepository {
 
   final storage = const FlutterSecureStorage();
 
+  // Define a common error handling function
+  void _handleError(dynamic error, String methodName) {
+    flog.e(methodName, error: error.toString());
+  }
+
   Future<void> _saveUserModel(UserModel model) async {
     try {
       final recordStr = json.encode(model.toJson());
       await storage.write(key: 'user_model', value: recordStr);
     } catch (e) {
-      flog.e('writeTokens', error: e);
+      _handleError(e, '_saveUserModel');
     }
   }
 
@@ -32,7 +37,7 @@ class AuthRepositoryImpl implements AuthRepository {
       core.auth.save(model.token, model.record.toJson());
       return model;
     } catch (e) {
-      flog.e('_updateTokens', error: e);
+      _handleError(e, '_getUserModel');
       return null;
     }
   }
@@ -54,12 +59,8 @@ class AuthRepositoryImpl implements AuthRepository {
 
       _saveUserModel(model);
       return DataSuccess(model.record.toEntity());
-    } on ClientException catch (e) {
-      flog.e('Generate0Auth2', error: e);
-      final error = PBErrorResponse.fromJson(e.response);
-      return DataFailed(AuthFailure(error.message));
     } catch (e) {
-      flog.e('GenerateOAuth2', error: e);
+      _handleError(e, 'generateOAuth2');
       return DataFailed(AuthFailure(e.toString()));
     }
   }
@@ -88,17 +89,13 @@ class AuthRepositoryImpl implements AuthRepository {
           final result = await core.authCol.getOne(data.id);
           data = UserDataModel.fromJson(result.toJson());
         } catch (e) {
-          flog.e(e);
+          _handleError(e, 'getUser network');
         }
       }
 
       return DataSuccess(data.toEntity());
-    } on ClientException catch (e) {
-      flog.e('GetUser', error: e);
-      final error = PBErrorResponse.fromJson(e.response);
-      return DataFailed(AuthFailure(error.message));
     } catch (e) {
-      flog.e('GetUser', error: e);
+      _handleError(e, 'getUser');
       return DataFailed(AuthFailure(e.toString()));
     }
   }
@@ -115,12 +112,8 @@ class AuthRepositoryImpl implements AuthRepository {
       final data = model.record;
       _saveUserModel(model);
       return DataSuccess(data.toEntity());
-    } on ClientException catch (e) {
-      flog.e('login', error: e.toString());
-      // final error = PBErrorResponse.fromJson(e.response);
-      return DataFailed(AuthFailure(e.toString()));
     } catch (e) {
-      flog.e('login', error: e);
+      _handleError(e, 'logIn');
       return DataFailed(AuthFailure(e.toString()));
     }
   }
@@ -131,7 +124,7 @@ class AuthRepositoryImpl implements AuthRepository {
       storage.deleteAll();
       core.auth.clear();
     } catch (e) {
-      flog.e('signOut', error: e);
+      _handleError(e, 'signOut');
       throw Exception(e);
     }
   }
@@ -149,12 +142,8 @@ class AuthRepositoryImpl implements AuthRepository {
       _saveUserModel(model);
 
       return DataSuccess(data.toEntity());
-    } on ClientException catch (e) {
-      flog.e('signUp', error: e);
-      final error = PBErrorResponse.fromJson(e.response);
-      return DataFailed(AuthFailure(error.message));
     } catch (e) {
-      flog.e('signUp', error: e);
+      _handleError(e, 'register');
       return DataFailed(AuthFailure(e.toString()));
     }
   }
@@ -165,12 +154,8 @@ class AuthRepositoryImpl implements AuthRepository {
       final record = await core.authCol.update(user.id, body: user.toJson());
       final newModel = UserModel.fromJson(record.toJson());
       return DataSuccess(newModel.record.toEntity());
-    } on ClientException catch (e) {
-      flog.e('updateUser', error: e);
-      final error = PBErrorResponse.fromJson(e.response);
-      return DataFailed(AuthFailure(error.message));
     } catch (e) {
-      flog.e('updateUser', error: e);
+      _handleError(e, 'updateUser');
       return DataFailed(AuthFailure(e.toString()));
     }
   }
@@ -184,12 +169,8 @@ class AuthRepositoryImpl implements AuthRepository {
       final record = await core.authCol.update(user.id, body: json);
       final newModel = UserModel.fromJson(record.toJson());
       return DataSuccess(newModel.record.toEntity());
-    } on ClientException catch (e) {
-      flog.e('changePassword', error: e);
-      final error = PBErrorResponse.fromJson(e.response);
-      return DataFailed(AuthFailure(error.message));
     } catch (e) {
-      flog.e('changePassword', error: e);
+      _handleError(e, 'changePassword');
       return DataFailed(AuthFailure(e.toString()));
     }
   }

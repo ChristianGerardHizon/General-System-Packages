@@ -4,7 +4,7 @@ import 'package:inventory_package/inventory_package.dart';
 abstract class ProductRepository {
   Future<DataState<Product>> get(String id);
 
-  Future<DataState<PBRecord<List<Product>>>> list({PageOptions? page});
+  Future<DataState<PBRecord<List<Product>>>> list({PageOptions? options});
 
   Future<DataState<Product>> create(ProductCreateParams params);
 
@@ -12,7 +12,7 @@ abstract class ProductRepository {
 
   Future<DataState<void>> delete(String id);
 
-  Future<DataState<Stream<ProductSubscriptionModel>>> subscribe(String topic);
+  // Future<DataState<Stream<ProductSubscriptionModel>>> subscribe(String topic);
 
-  Future<DataState<void>> unsubscribe(String topic);
+  // Future<DataState<void>> unsubscribe(String topic);
 }

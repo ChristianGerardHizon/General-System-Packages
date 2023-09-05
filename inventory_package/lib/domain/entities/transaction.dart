@@ -18,6 +18,7 @@ class Transaction with _$Transaction {
     @JsonKey(name: 'unitPrice') required double unitPrice,
     @JsonKey(name: 'customerName') required String customerName,
     @JsonKey(name: 'isVoided', defaultValue: false) required bool isVoided,
+    @JsonKey(name: 'userId') required String userId,
   }) = _Transaction;
 
   factory Transaction.fromJson(Map<String, dynamic> json) =>
