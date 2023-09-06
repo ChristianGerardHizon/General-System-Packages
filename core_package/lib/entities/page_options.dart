@@ -9,6 +9,7 @@ class PageOptions with _$PageOptions {
     int? end,
     String? expand,
     String? filter,
+    int? perPage,
   }) = _PageOptions;
 
   const PageOptions._();

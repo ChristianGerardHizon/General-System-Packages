@@ -20,6 +20,7 @@ mixin _$PageOptions {
   int? get end => throw _privateConstructorUsedError;
   String? get expand => throw _privateConstructorUsedError;
   String? get filter => throw _privateConstructorUsedError;
+  int? get perPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PageOptionsCopyWith<PageOptions> get copyWith =>
@@ -32,7 +33,8 @@ abstract class $PageOptionsCopyWith<$Res> {
           PageOptions value, $Res Function(PageOptions) then) =
       _$PageOptionsCopyWithImpl<$Res, PageOptions>;
   @useResult
-  $Res call({int? start, int? end, String? expand, String? filter});
+  $Res call(
+      {int? start, int? end, String? expand, String? filter, int? perPage});
 }
 
 /// @nodoc
@@ -52,6 +54,7 @@ class _$PageOptionsCopyWithImpl<$Res, $Val extends PageOptions>
     Object? end = freezed,
     Object? expand = freezed,
     Object? filter = freezed,
+    Object? perPage = freezed,
   }) {
     return _then(_value.copyWith(
       start: freezed == start
@@ -70,6 +73,10 @@ class _$PageOptionsCopyWithImpl<$Res, $Val extends PageOptions>
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as String?,
+      perPage: freezed == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -82,7 +89,8 @@ abstract class _$$_PageOptionsCopyWith<$Res>
       __$$_PageOptionsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? start, int? end, String? expand, String? filter});
+  $Res call(
+      {int? start, int? end, String? expand, String? filter, int? perPage});
 }
 
 /// @nodoc
@@ -100,6 +108,7 @@ class __$$_PageOptionsCopyWithImpl<$Res>
     Object? end = freezed,
     Object? expand = freezed,
     Object? filter = freezed,
+    Object? perPage = freezed,
   }) {
     return _then(_$_PageOptions(
       start: freezed == start
@@ -118,6 +127,10 @@ class __$$_PageOptionsCopyWithImpl<$Res>
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as String?,
+      perPage: freezed == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -125,7 +138,8 @@ class __$$_PageOptionsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PageOptions extends _PageOptions {
-  const _$_PageOptions({this.start, this.end, this.expand, this.filter})
+  const _$_PageOptions(
+      {this.start, this.end, this.expand, this.filter, this.perPage})
       : super._();
 
   @override
@@ -136,10 +150,12 @@ class _$_PageOptions extends _PageOptions {
   final String? expand;
   @override
   final String? filter;
+  @override
+  final int? perPage;
 
   @override
   String toString() {
-    return 'PageOptions(start: $start, end: $end, expand: $expand, filter: $filter)';
+    return 'PageOptions(start: $start, end: $end, expand: $expand, filter: $filter, perPage: $perPage)';
   }
 
   @override
@@ -150,11 +166,13 @@ class _$_PageOptions extends _PageOptions {
             (identical(other.start, start) || other.start == start) &&
             (identical(other.end, end) || other.end == end) &&
             (identical(other.expand, expand) || other.expand == expand) &&
-            (identical(other.filter, filter) || other.filter == filter));
+            (identical(other.filter, filter) || other.filter == filter) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, start, end, expand, filter);
+  int get hashCode =>
+      Object.hash(runtimeType, start, end, expand, filter, perPage);
 
   @JsonKey(ignore: true)
   @override
@@ -168,7 +186,8 @@ abstract class _PageOptions extends PageOptions {
       {final int? start,
       final int? end,
       final String? expand,
-      final String? filter}) = _$_PageOptions;
+      final String? filter,
+      final int? perPage}) = _$_PageOptions;
   const _PageOptions._() : super._();
 
   @override
@@ -179,6 +198,8 @@ abstract class _PageOptions extends PageOptions {
   String? get expand;
   @override
   String? get filter;
+  @override
+  int? get perPage;
   @override
   @JsonKey(ignore: true)
   _$$_PageOptionsCopyWith<_$_PageOptions> get copyWith =>

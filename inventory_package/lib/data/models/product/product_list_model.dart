@@ -11,8 +11,8 @@ class ProductListModel with _$ProductListModel {
     // default
     @JsonKey(name: 'page') required int page,
     @JsonKey(name: 'perPage') required int perPage,
-    @JsonKey(name: 'totalPages') required int totalPages,
     @JsonKey(name: 'totalItems') required int totalItems,
+    @JsonKey(name: 'totalPages') required int totalPages,
 
     // custom
     @JsonKey(name: 'items') required List<ProductModel> items,

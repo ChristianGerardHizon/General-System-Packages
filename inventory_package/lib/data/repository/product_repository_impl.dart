@@ -73,6 +73,7 @@ class ProductRepositoryImpl implements ProductRepository {
       final result = await _col.getList(
         filter: options?.filter,
         page: options?.start ?? 1,
+        perPage: options?.perPage ?? 30,
       );
       final model = ProductListModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());

@@ -25,10 +25,10 @@ mixin _$ProductListModel {
   int get page => throw _privateConstructorUsedError;
   @JsonKey(name: 'perPage')
   int get perPage => throw _privateConstructorUsedError;
-  @JsonKey(name: 'totalPages')
-  int get totalPages => throw _privateConstructorUsedError;
   @JsonKey(name: 'totalItems')
-  int get totalItems => throw _privateConstructorUsedError; // custom
+  int get totalItems => throw _privateConstructorUsedError;
+  @JsonKey(name: 'totalPages')
+  int get totalPages => throw _privateConstructorUsedError; // custom
   @JsonKey(name: 'items')
   List<ProductModel> get items => throw _privateConstructorUsedError;
 
@@ -47,8 +47,8 @@ abstract class $ProductListModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'page') int page,
       @JsonKey(name: 'perPage') int perPage,
-      @JsonKey(name: 'totalPages') int totalPages,
       @JsonKey(name: 'totalItems') int totalItems,
+      @JsonKey(name: 'totalPages') int totalPages,
       @JsonKey(name: 'items') List<ProductModel> items});
 }
 
@@ -67,8 +67,8 @@ class _$ProductListModelCopyWithImpl<$Res, $Val extends ProductListModel>
   $Res call({
     Object? page = null,
     Object? perPage = null,
-    Object? totalPages = null,
     Object? totalItems = null,
+    Object? totalPages = null,
     Object? items = null,
   }) {
     return _then(_value.copyWith(
@@ -80,13 +80,13 @@ class _$ProductListModelCopyWithImpl<$Res, $Val extends ProductListModel>
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
               as int,
-      totalPages: null == totalPages
-          ? _value.totalPages
-          : totalPages // ignore: cast_nullable_to_non_nullable
-              as int,
       totalItems: null == totalItems
           ? _value.totalItems
           : totalItems // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
       items: null == items
           ? _value.items
@@ -107,8 +107,8 @@ abstract class _$$_ProductListModelCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'page') int page,
       @JsonKey(name: 'perPage') int perPage,
-      @JsonKey(name: 'totalPages') int totalPages,
       @JsonKey(name: 'totalItems') int totalItems,
+      @JsonKey(name: 'totalPages') int totalPages,
       @JsonKey(name: 'items') List<ProductModel> items});
 }
 
@@ -125,8 +125,8 @@ class __$$_ProductListModelCopyWithImpl<$Res>
   $Res call({
     Object? page = null,
     Object? perPage = null,
-    Object? totalPages = null,
     Object? totalItems = null,
+    Object? totalPages = null,
     Object? items = null,
   }) {
     return _then(_$_ProductListModel(
@@ -138,13 +138,13 @@ class __$$_ProductListModelCopyWithImpl<$Res>
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
               as int,
-      totalPages: null == totalPages
-          ? _value.totalPages
-          : totalPages // ignore: cast_nullable_to_non_nullable
-              as int,
       totalItems: null == totalItems
           ? _value.totalItems
           : totalItems // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
       items: null == items
           ? _value._items
@@ -160,8 +160,8 @@ class _$_ProductListModel extends _ProductListModel {
   _$_ProductListModel(
       {@JsonKey(name: 'page') required this.page,
       @JsonKey(name: 'perPage') required this.perPage,
-      @JsonKey(name: 'totalPages') required this.totalPages,
       @JsonKey(name: 'totalItems') required this.totalItems,
+      @JsonKey(name: 'totalPages') required this.totalPages,
       @JsonKey(name: 'items') required final List<ProductModel> items})
       : _items = items,
         super._();
@@ -177,11 +177,11 @@ class _$_ProductListModel extends _ProductListModel {
   @JsonKey(name: 'perPage')
   final int perPage;
   @override
-  @JsonKey(name: 'totalPages')
-  final int totalPages;
-  @override
   @JsonKey(name: 'totalItems')
   final int totalItems;
+  @override
+  @JsonKey(name: 'totalPages')
+  final int totalPages;
 // custom
   final List<ProductModel> _items;
 // custom
@@ -195,7 +195,7 @@ class _$_ProductListModel extends _ProductListModel {
 
   @override
   String toString() {
-    return 'ProductListModel(page: $page, perPage: $perPage, totalPages: $totalPages, totalItems: $totalItems, items: $items)';
+    return 'ProductListModel(page: $page, perPage: $perPage, totalItems: $totalItems, totalPages: $totalPages, items: $items)';
   }
 
   @override
@@ -205,17 +205,17 @@ class _$_ProductListModel extends _ProductListModel {
             other is _$_ProductListModel &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.perPage, perPage) || other.perPage == perPage) &&
-            (identical(other.totalPages, totalPages) ||
-                other.totalPages == totalPages) &&
             (identical(other.totalItems, totalItems) ||
                 other.totalItems == totalItems) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, page, perPage, totalPages,
-      totalItems, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(runtimeType, page, perPage, totalItems,
+      totalPages, const DeepCollectionEquality().hash(_items));
 
   @JsonKey(ignore: true)
   @override
@@ -235,8 +235,8 @@ abstract class _ProductListModel extends ProductListModel {
   factory _ProductListModel(
           {@JsonKey(name: 'page') required final int page,
           @JsonKey(name: 'perPage') required final int perPage,
-          @JsonKey(name: 'totalPages') required final int totalPages,
           @JsonKey(name: 'totalItems') required final int totalItems,
+          @JsonKey(name: 'totalPages') required final int totalPages,
           @JsonKey(name: 'items') required final List<ProductModel> items}) =
       _$_ProductListModel;
   _ProductListModel._() : super._();
@@ -251,11 +251,11 @@ abstract class _ProductListModel extends ProductListModel {
   @JsonKey(name: 'perPage')
   int get perPage;
   @override
-  @JsonKey(name: 'totalPages')
-  int get totalPages;
-  @override
   @JsonKey(name: 'totalItems')
   int get totalItems;
+  @override
+  @JsonKey(name: 'totalPages')
+  int get totalPages;
   @override // custom
   @JsonKey(name: 'items')
   List<ProductModel> get items;
