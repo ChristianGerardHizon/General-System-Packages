@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'transaction_expand.dart';
+part of 'transaction_expand_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-TransactionExpand _$TransactionExpandFromJson(Map<String, dynamic> json) {
+TransactionExpandModel _$TransactionExpandModelFromJson(
+    Map<String, dynamic> json) {
   return _TransactionExpand.fromJson(json);
 }
 
 /// @nodoc
-mixin _$TransactionExpand {
+mixin _$TransactionExpandModel {
   TransactionTypeModel get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'customer', defaultValue: null)
   CustomerModel? get customer => throw _privateConstructorUsedError;
@@ -28,15 +29,15 @@ mixin _$TransactionExpand {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TransactionExpandCopyWith<TransactionExpand> get copyWith =>
+  $TransactionExpandModelCopyWith<TransactionExpandModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TransactionExpandCopyWith<$Res> {
-  factory $TransactionExpandCopyWith(
-          TransactionExpand value, $Res Function(TransactionExpand) then) =
-      _$TransactionExpandCopyWithImpl<$Res, TransactionExpand>;
+abstract class $TransactionExpandModelCopyWith<$Res> {
+  factory $TransactionExpandModelCopyWith(TransactionExpandModel value,
+          $Res Function(TransactionExpandModel) then) =
+      _$TransactionExpandModelCopyWithImpl<$Res, TransactionExpandModel>;
   @useResult
   $Res call(
       {TransactionTypeModel type,
@@ -49,9 +50,10 @@ abstract class $TransactionExpandCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransactionExpandCopyWithImpl<$Res, $Val extends TransactionExpand>
-    implements $TransactionExpandCopyWith<$Res> {
-  _$TransactionExpandCopyWithImpl(this._value, this._then);
+class _$TransactionExpandModelCopyWithImpl<$Res,
+        $Val extends TransactionExpandModel>
+    implements $TransactionExpandModelCopyWith<$Res> {
+  _$TransactionExpandModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -116,7 +118,7 @@ class _$TransactionExpandCopyWithImpl<$Res, $Val extends TransactionExpand>
 
 /// @nodoc
 abstract class _$$_TransactionExpandCopyWith<$Res>
-    implements $TransactionExpandCopyWith<$Res> {
+    implements $TransactionExpandModelCopyWith<$Res> {
   factory _$$_TransactionExpandCopyWith(_$_TransactionExpand value,
           $Res Function(_$_TransactionExpand) then) =
       __$$_TransactionExpandCopyWithImpl<$Res>;
@@ -137,7 +139,7 @@ abstract class _$$_TransactionExpandCopyWith<$Res>
 
 /// @nodoc
 class __$$_TransactionExpandCopyWithImpl<$Res>
-    extends _$TransactionExpandCopyWithImpl<$Res, _$_TransactionExpand>
+    extends _$TransactionExpandModelCopyWithImpl<$Res, _$_TransactionExpand>
     implements _$$_TransactionExpandCopyWith<$Res> {
   __$$_TransactionExpandCopyWithImpl(
       _$_TransactionExpand _value, $Res Function(_$_TransactionExpand) _then)
@@ -169,11 +171,12 @@ class __$$_TransactionExpandCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransactionExpand implements _TransactionExpand {
+class _$_TransactionExpand extends _TransactionExpand {
   _$_TransactionExpand(
       {required this.type,
       @JsonKey(name: 'customer', defaultValue: null) this.customer,
-      @JsonKey(name: 'guest', defaultValue: null) this.guest});
+      @JsonKey(name: 'guest', defaultValue: null) this.guest})
+      : super._();
 
   factory _$_TransactionExpand.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionExpandFromJson(json);
@@ -189,7 +192,7 @@ class _$_TransactionExpand implements _TransactionExpand {
 
   @override
   String toString() {
-    return 'TransactionExpand(type: $type, customer: $customer, guest: $guest)';
+    return 'TransactionExpandModel(type: $type, customer: $customer, guest: $guest)';
   }
 
   @override
@@ -222,13 +225,14 @@ class _$_TransactionExpand implements _TransactionExpand {
   }
 }
 
-abstract class _TransactionExpand implements TransactionExpand {
+abstract class _TransactionExpand extends TransactionExpandModel {
   factory _TransactionExpand(
       {required final TransactionTypeModel type,
       @JsonKey(name: 'customer', defaultValue: null)
       final CustomerModel? customer,
       @JsonKey(name: 'guest', defaultValue: null)
       final GuestModel? guest}) = _$_TransactionExpand;
+  _TransactionExpand._() : super._();
 
   factory _TransactionExpand.fromJson(Map<String, dynamic> json) =
       _$_TransactionExpand.fromJson;

@@ -22,13 +22,15 @@ TransactionCreateParams _$TransactionCreateParamsFromJson(
 /// @nodoc
 mixin _$TransactionCreateParams {
   String get type => throw _privateConstructorUsedError;
-  String get customer => throw _privateConstructorUsedError;
-  String get guest => throw _privateConstructorUsedError;
-  num get fee => throw _privateConstructorUsedError;
-  num get amount => throw _privateConstructorUsedError;
-  String get remarks => throw _privateConstructorUsedError;
-  bool get isPaid => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  String? get customer => throw _privateConstructorUsedError;
+  String? get guest => throw _privateConstructorUsedError;
+  num? get fee => throw _privateConstructorUsedError;
+  num? get amount => throw _privateConstructorUsedError;
+  String? get remarks => throw _privateConstructorUsedError;
+  bool? get isPaid => throw _privateConstructorUsedError;
+  bool? get isDeleted => throw _privateConstructorUsedError;
+  bool? get isVoid => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,13 +46,15 @@ abstract class $TransactionCreateParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String type,
-      String customer,
-      String guest,
-      num fee,
-      num amount,
-      String remarks,
-      bool isPaid,
-      DateTime date});
+      String? customer,
+      String? guest,
+      num? fee,
+      num? amount,
+      String? remarks,
+      bool? isPaid,
+      bool? isDeleted,
+      bool? isVoid,
+      DateTime? date});
 }
 
 /// @nodoc
@@ -68,47 +72,57 @@ class _$TransactionCreateParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? type = null,
-    Object? customer = null,
-    Object? guest = null,
-    Object? fee = null,
-    Object? amount = null,
-    Object? remarks = null,
-    Object? isPaid = null,
-    Object? date = null,
+    Object? customer = freezed,
+    Object? guest = freezed,
+    Object? fee = freezed,
+    Object? amount = freezed,
+    Object? remarks = freezed,
+    Object? isPaid = freezed,
+    Object? isDeleted = freezed,
+    Object? isVoid = freezed,
+    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      customer: null == customer
+      customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as String,
-      guest: null == guest
+              as String?,
+      guest: freezed == guest
           ? _value.guest
           : guest // ignore: cast_nullable_to_non_nullable
-              as String,
-      fee: null == fee
+              as String?,
+      fee: freezed == fee
           ? _value.fee
           : fee // ignore: cast_nullable_to_non_nullable
-              as num,
-      amount: null == amount
+              as num?,
+      amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as num,
-      remarks: null == remarks
+              as num?,
+      remarks: freezed == remarks
           ? _value.remarks
           : remarks // ignore: cast_nullable_to_non_nullable
-              as String,
-      isPaid: null == isPaid
+              as String?,
+      isPaid: freezed == isPaid
           ? _value.isPaid
           : isPaid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      date: null == date
+              as bool?,
+      isDeleted: freezed == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isVoid: freezed == isVoid
+          ? _value.isVoid
+          : isVoid // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -123,13 +137,15 @@ abstract class _$$_TransactionCreateParamsCopyWith<$Res>
   @useResult
   $Res call(
       {String type,
-      String customer,
-      String guest,
-      num fee,
-      num amount,
-      String remarks,
-      bool isPaid,
-      DateTime date});
+      String? customer,
+      String? guest,
+      num? fee,
+      num? amount,
+      String? remarks,
+      bool? isPaid,
+      bool? isDeleted,
+      bool? isVoid,
+      DateTime? date});
 }
 
 /// @nodoc
@@ -145,54 +161,64 @@ class __$$_TransactionCreateParamsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? customer = null,
-    Object? guest = null,
-    Object? fee = null,
-    Object? amount = null,
-    Object? remarks = null,
-    Object? isPaid = null,
-    Object? date = null,
+    Object? customer = freezed,
+    Object? guest = freezed,
+    Object? fee = freezed,
+    Object? amount = freezed,
+    Object? remarks = freezed,
+    Object? isPaid = freezed,
+    Object? isDeleted = freezed,
+    Object? isVoid = freezed,
+    Object? date = freezed,
   }) {
     return _then(_$_TransactionCreateParams(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      customer: null == customer
+      customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as String,
-      guest: null == guest
+              as String?,
+      guest: freezed == guest
           ? _value.guest
           : guest // ignore: cast_nullable_to_non_nullable
-              as String,
-      fee: null == fee
+              as String?,
+      fee: freezed == fee
           ? _value.fee
           : fee // ignore: cast_nullable_to_non_nullable
-              as num,
-      amount: null == amount
+              as num?,
+      amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as num,
-      remarks: null == remarks
+              as num?,
+      remarks: freezed == remarks
           ? _value.remarks
           : remarks // ignore: cast_nullable_to_non_nullable
-              as String,
-      isPaid: null == isPaid
+              as String?,
+      isPaid: freezed == isPaid
           ? _value.isPaid
           : isPaid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      date: null == date
+              as bool?,
+      isDeleted: freezed == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isVoid: freezed == isVoid
+          ? _value.isVoid
+          : isVoid // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransactionCreateParams implements _TransactionCreateParams {
+class _$_TransactionCreateParams extends _TransactionCreateParams {
   _$_TransactionCreateParams(
       {required this.type,
       required this.customer,
@@ -201,7 +227,10 @@ class _$_TransactionCreateParams implements _TransactionCreateParams {
       required this.amount,
       required this.remarks,
       required this.isPaid,
-      required this.date});
+      required this.isDeleted,
+      required this.isVoid,
+      required this.date})
+      : super._();
 
   factory _$_TransactionCreateParams.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionCreateParamsFromJson(json);
@@ -209,23 +238,27 @@ class _$_TransactionCreateParams implements _TransactionCreateParams {
   @override
   final String type;
   @override
-  final String customer;
+  final String? customer;
   @override
-  final String guest;
+  final String? guest;
   @override
-  final num fee;
+  final num? fee;
   @override
-  final num amount;
+  final num? amount;
   @override
-  final String remarks;
+  final String? remarks;
   @override
-  final bool isPaid;
+  final bool? isPaid;
   @override
-  final DateTime date;
+  final bool? isDeleted;
+  @override
+  final bool? isVoid;
+  @override
+  final DateTime? date;
 
   @override
   String toString() {
-    return 'TransactionCreateParams(type: $type, customer: $customer, guest: $guest, fee: $fee, amount: $amount, remarks: $remarks, isPaid: $isPaid, date: $date)';
+    return 'TransactionCreateParams(type: $type, customer: $customer, guest: $guest, fee: $fee, amount: $amount, remarks: $remarks, isPaid: $isPaid, isDeleted: $isDeleted, isVoid: $isVoid, date: $date)';
   }
 
   @override
@@ -241,13 +274,16 @@ class _$_TransactionCreateParams implements _TransactionCreateParams {
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.remarks, remarks) || other.remarks == remarks) &&
             (identical(other.isPaid, isPaid) || other.isPaid == isPaid) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted) &&
+            (identical(other.isVoid, isVoid) || other.isVoid == isVoid) &&
             (identical(other.date, date) || other.date == date));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, customer, guest, fee, amount, remarks, isPaid, date);
+  int get hashCode => Object.hash(runtimeType, type, customer, guest, fee,
+      amount, remarks, isPaid, isDeleted, isVoid, date);
 
   @JsonKey(ignore: true)
   @override
@@ -265,16 +301,19 @@ class _$_TransactionCreateParams implements _TransactionCreateParams {
   }
 }
 
-abstract class _TransactionCreateParams implements TransactionCreateParams {
+abstract class _TransactionCreateParams extends TransactionCreateParams {
   factory _TransactionCreateParams(
       {required final String type,
-      required final String customer,
-      required final String guest,
-      required final num fee,
-      required final num amount,
-      required final String remarks,
-      required final bool isPaid,
-      required final DateTime date}) = _$_TransactionCreateParams;
+      required final String? customer,
+      required final String? guest,
+      required final num? fee,
+      required final num? amount,
+      required final String? remarks,
+      required final bool? isPaid,
+      required final bool? isDeleted,
+      required final bool? isVoid,
+      required final DateTime? date}) = _$_TransactionCreateParams;
+  _TransactionCreateParams._() : super._();
 
   factory _TransactionCreateParams.fromJson(Map<String, dynamic> json) =
       _$_TransactionCreateParams.fromJson;
@@ -282,19 +321,23 @@ abstract class _TransactionCreateParams implements TransactionCreateParams {
   @override
   String get type;
   @override
-  String get customer;
+  String? get customer;
   @override
-  String get guest;
+  String? get guest;
   @override
-  num get fee;
+  num? get fee;
   @override
-  num get amount;
+  num? get amount;
   @override
-  String get remarks;
+  String? get remarks;
   @override
-  bool get isPaid;
+  bool? get isPaid;
   @override
-  DateTime get date;
+  bool? get isDeleted;
+  @override
+  bool? get isVoid;
+  @override
+  DateTime? get date;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCreateParamsCopyWith<_$_TransactionCreateParams>

@@ -36,9 +36,11 @@ mixin _$Transaction {
   Guest? get guest => throw _privateConstructorUsedError;
   num get fee => throw _privateConstructorUsedError;
   num get amount => throw _privateConstructorUsedError;
-  String get remarks => throw _privateConstructorUsedError;
+  String? get remarks => throw _privateConstructorUsedError;
   bool get isPaid => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
+  bool get isDeleted => throw _privateConstructorUsedError;
+  bool get isVoid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,9 +65,11 @@ abstract class $TransactionCopyWith<$Res> {
       Guest? guest,
       num fee,
       num amount,
-      String remarks,
+      String? remarks,
       bool isPaid,
-      DateTime date});
+      DateTime date,
+      bool isDeleted,
+      bool isVoid});
 
   $TransactionTypeCopyWith<$Res> get type;
   $CustomerCopyWith<$Res>? get customer;
@@ -95,9 +99,11 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
     Object? guest = freezed,
     Object? fee = null,
     Object? amount = null,
-    Object? remarks = null,
+    Object? remarks = freezed,
     Object? isPaid = null,
     Object? date = null,
+    Object? isDeleted = null,
+    Object? isVoid = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -140,10 +146,10 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as num,
-      remarks: null == remarks
+      remarks: freezed == remarks
           ? _value.remarks
           : remarks // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isPaid: null == isPaid
           ? _value.isPaid
           : isPaid // ignore: cast_nullable_to_non_nullable
@@ -152,6 +158,14 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isVoid: null == isVoid
+          ? _value.isVoid
+          : isVoid // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -207,9 +221,11 @@ abstract class _$$_TransactionCopyWith<$Res>
       Guest? guest,
       num fee,
       num amount,
-      String remarks,
+      String? remarks,
       bool isPaid,
-      DateTime date});
+      DateTime date,
+      bool isDeleted,
+      bool isVoid});
 
   @override
   $TransactionTypeCopyWith<$Res> get type;
@@ -240,9 +256,11 @@ class __$$_TransactionCopyWithImpl<$Res>
     Object? guest = freezed,
     Object? fee = null,
     Object? amount = null,
-    Object? remarks = null,
+    Object? remarks = freezed,
     Object? isPaid = null,
     Object? date = null,
+    Object? isDeleted = null,
+    Object? isVoid = null,
   }) {
     return _then(_$_Transaction(
       id: null == id
@@ -285,10 +303,10 @@ class __$$_TransactionCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as num,
-      remarks: null == remarks
+      remarks: freezed == remarks
           ? _value.remarks
           : remarks // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isPaid: null == isPaid
           ? _value.isPaid
           : isPaid // ignore: cast_nullable_to_non_nullable
@@ -297,6 +315,14 @@ class __$$_TransactionCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      isDeleted: null == isDeleted
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isVoid: null == isVoid
+          ? _value.isVoid
+          : isVoid // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -315,9 +341,11 @@ class _$_Transaction implements _Transaction {
       this.guest,
       required this.fee,
       required this.amount,
-      required this.remarks,
+      this.remarks,
       required this.isPaid,
-      required this.date});
+      required this.date,
+      required this.isDeleted,
+      required this.isVoid});
 
   factory _$_Transaction.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionFromJson(json);
@@ -350,15 +378,19 @@ class _$_Transaction implements _Transaction {
   @override
   final num amount;
   @override
-  final String remarks;
+  final String? remarks;
   @override
   final bool isPaid;
   @override
   final DateTime date;
+  @override
+  final bool isDeleted;
+  @override
+  final bool isVoid;
 
   @override
   String toString() {
-    return 'Transaction(id: $id, collectionId: $collectionId, collectionName: $collectionName, created: $created, updated: $updated, type: $type, customer: $customer, guest: $guest, fee: $fee, amount: $amount, remarks: $remarks, isPaid: $isPaid, date: $date)';
+    return 'Transaction(id: $id, collectionId: $collectionId, collectionName: $collectionName, created: $created, updated: $updated, type: $type, customer: $customer, guest: $guest, fee: $fee, amount: $amount, remarks: $remarks, isPaid: $isPaid, date: $date, isDeleted: $isDeleted, isVoid: $isVoid)';
   }
 
   @override
@@ -381,7 +413,10 @@ class _$_Transaction implements _Transaction {
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.remarks, remarks) || other.remarks == remarks) &&
             (identical(other.isPaid, isPaid) || other.isPaid == isPaid) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted) &&
+            (identical(other.isVoid, isVoid) || other.isVoid == isVoid));
   }
 
   @JsonKey(ignore: true)
@@ -400,7 +435,9 @@ class _$_Transaction implements _Transaction {
       amount,
       remarks,
       isPaid,
-      date);
+      date,
+      isDeleted,
+      isVoid);
 
   @JsonKey(ignore: true)
   @override
@@ -428,9 +465,11 @@ abstract class _Transaction implements Transaction {
       final Guest? guest,
       required final num fee,
       required final num amount,
-      required final String remarks,
+      final String? remarks,
       required final bool isPaid,
-      required final DateTime date}) = _$_Transaction;
+      required final DateTime date,
+      required final bool isDeleted,
+      required final bool isVoid}) = _$_Transaction;
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$_Transaction.fromJson;
@@ -461,11 +500,15 @@ abstract class _Transaction implements Transaction {
   @override
   num get amount;
   @override
-  String get remarks;
+  String? get remarks;
   @override
   bool get isPaid;
   @override
   DateTime get date;
+  @override
+  bool get isDeleted;
+  @override
+  bool get isVoid;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>

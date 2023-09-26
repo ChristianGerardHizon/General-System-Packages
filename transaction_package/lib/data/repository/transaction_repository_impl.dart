@@ -8,11 +8,13 @@ class TransactionRepositoryImpl implements TransactionRepository {
 
   final CoreRepository core;
 
-  RecordService get _col => core.productCol;
+  final String expandValues = 'customer,guest,type';
+  RecordService get _col => core.transactionsCol;
 
   // Reusable error handling function
-  DataState<T> _handleError<T>(dynamic e, String methodName) {
-    flog.e('TransactionRepo[$methodName] ', error: e);
+  DataState<T> _handleError<T>(
+      dynamic e, StackTrace stackTrace, String methodName) {
+    flog.e('TransactionRepo[$methodName] ', error: e, stackTrace: stackTrace);
 
     if (e is ClientException) {
       final error = PBErrorResponse.fromJson(e.response);
@@ -28,31 +30,31 @@ class TransactionRepositoryImpl implements TransactionRepository {
       final result = await _col.create(body: params.toJson());
       final model = TransactionModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
-    } catch (e) {
-      return _handleError(e, 'create');
+    } catch (error, stackTrace) {
+      return _handleError(error, stackTrace, 'create');
     }
   }
 
   @override
-  Future<DataState<Transaction>> update(Transaction product) async {
+  Future<DataState<Transaction>> update(Transaction transaction) async {
     try {
-      var jsonData = product.toJson();
-      final result = await _col.update(product.id, body: jsonData);
+      var jsonBody = TransactionModel.toJsonBody(transaction);
+      final result = await _col.update(transaction.id, body: jsonBody);
       final model = TransactionModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
-    } catch (e) {
-      return _handleError(e, 'update');
+    } catch (error, stackTrace) {
+      return _handleError(error, stackTrace, 'update');
     }
   }
 
   @override
   Future<DataState<Transaction>> get(String id) async {
     try {
-      final result = await _col.getOne(id, expand: 'customer,guest');
+      final result = await _col.getOne(id, expand: expandValues);
       final model = TransactionModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
-    } catch (e) {
-      return _handleError(e, 'get');
+    } catch (error, stackTrace) {
+      return _handleError(error, stackTrace, 'get');
     }
   }
 
@@ -61,8 +63,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
     try {
       await _col.delete(id);
       return const DataSuccess(null);
-    } catch (e) {
-      return _handleError(e, 'delete');
+    } catch (error, stackTrace) {
+      return _handleError(error, stackTrace, 'delete');
     }
   }
 
@@ -74,12 +76,13 @@ class TransactionRepositoryImpl implements TransactionRepository {
         filter: options?.filter,
         page: options?.start ?? 1,
         perPage: options?.perPage ?? 30,
-        expand: 'customer,guest',
+        expand: expandValues,
       );
+      flog.d(result.toJson());
       final model = TransactionListModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
-    } catch (e) {
-      return _handleError(e, 'list');
+    } catch (error, stackTrace) {
+      return _handleError(error, stackTrace, 'list');
     }
   }
 

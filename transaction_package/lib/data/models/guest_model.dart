@@ -19,6 +19,7 @@ class GuestModel with _$GuestModel {
     required String description,
     required String phoneNumber,
   }) = _GuestModel;
+  const GuestModel._();
 
   Guest toEntity() => Guest(
         id: id,
@@ -29,6 +30,17 @@ class GuestModel with _$GuestModel {
         name: name,
         description: description,
         phoneNumber: phoneNumber,
+      );
+
+  static GuestModel fromEntity(Guest guest) => GuestModel(
+        id: guest.id,
+        collectionId: guest.collectionId,
+        collectionName: guest.collectionName,
+        created: guest.created,
+        updated: guest.updated,
+        name: guest.name,
+        description: guest.description,
+        phoneNumber: guest.phoneNumber,
       );
 
   factory GuestModel.fromJson(Map<String, dynamic> json) =>

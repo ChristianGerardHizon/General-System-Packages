@@ -10,13 +10,16 @@ _$_TransactionCreateParams _$$_TransactionCreateParamsFromJson(
         Map<String, dynamic> json) =>
     _$_TransactionCreateParams(
       type: json['type'] as String,
-      customer: json['customer'] as String,
-      guest: json['guest'] as String,
-      fee: json['fee'] as num,
-      amount: json['amount'] as num,
-      remarks: json['remarks'] as String,
-      isPaid: json['isPaid'] as bool,
-      date: DateTime.parse(json['date'] as String),
+      customer: json['customer'] as String?,
+      guest: json['guest'] as String?,
+      fee: json['fee'] as num?,
+      amount: json['amount'] as num?,
+      remarks: json['remarks'] as String?,
+      isPaid: json['isPaid'] as bool?,
+      isDeleted: json['isDeleted'] as bool?,
+      isVoid: json['isVoid'] as bool?,
+      date:
+          json['date'] == null ? null : DateTime.parse(json['date'] as String),
     );
 
 Map<String, dynamic> _$$_TransactionCreateParamsToJson(
@@ -29,5 +32,7 @@ Map<String, dynamic> _$$_TransactionCreateParamsToJson(
       'amount': instance.amount,
       'remarks': instance.remarks,
       'isPaid': instance.isPaid,
-      'date': instance.date.toIso8601String(),
+      'isDeleted': instance.isDeleted,
+      'isVoid': instance.isVoid,
+      'date': instance.date?.toIso8601String(),
     };

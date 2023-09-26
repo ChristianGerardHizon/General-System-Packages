@@ -19,6 +19,7 @@ class TransactionTypeModel with _$TransactionTypeModel {
     required String displayName,
     required int priority,
   }) = _TransactionTypeModel;
+  const TransactionTypeModel._();
 
   TransactionType toEntity() => TransactionType(
         id: id,
@@ -29,6 +30,18 @@ class TransactionTypeModel with _$TransactionTypeModel {
         key: key,
         displayName: displayName,
         priority: priority,
+      );
+
+  static TransactionTypeModel fromEntity(TransactionType type) =>
+      TransactionTypeModel(
+        id: type.id,
+        collectionId: type.collectionId,
+        collectionName: type.collectionName,
+        created: type.created,
+        updated: type.updated,
+        key: type.key,
+        displayName: type.displayName,
+        priority: type.priority,
       );
 
   factory TransactionTypeModel.fromJson(Map<String, dynamic> json) =>

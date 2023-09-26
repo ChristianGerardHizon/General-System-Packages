@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'transaction_expand.dart';
+part of 'transaction_expand_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

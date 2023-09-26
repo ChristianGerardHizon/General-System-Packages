@@ -19,6 +19,7 @@ class CustomerModel with _$CustomerModel {
     required String description,
     required String phoneNumber,
   }) = _CustomerModel;
+  const CustomerModel._();
 
   Customer toEntity() => Customer(
         id: id,
@@ -29,6 +30,17 @@ class CustomerModel with _$CustomerModel {
         name: name,
         description: description,
         phoneNumber: phoneNumber,
+      );
+
+  static CustomerModel fromEntity(Customer customer) => CustomerModel(
+        id: customer.id,
+        collectionId: customer.collectionId,
+        collectionName: customer.collectionName,
+        created: customer.created,
+        updated: customer.updated,
+        name: customer.name,
+        description: customer.description,
+        phoneNumber: customer.phoneNumber,
       );
 
   factory CustomerModel.fromJson(Map<String, dynamic> json) =>

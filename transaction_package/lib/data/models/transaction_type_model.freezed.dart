@@ -196,7 +196,7 @@ class __$$_TransactionTypeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransactionTypeModel implements _TransactionTypeModel {
+class _$_TransactionTypeModel extends _TransactionTypeModel {
   _$_TransactionTypeModel(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'collectionId') required this.collectionId,
@@ -205,7 +205,8 @@ class _$_TransactionTypeModel implements _TransactionTypeModel {
       @JsonKey(name: 'updated') required this.updated,
       required this.key,
       required this.displayName,
-      required this.priority});
+      required this.priority})
+      : super._();
 
   factory _$_TransactionTypeModel.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionTypeModelFromJson(json);
@@ -278,7 +279,7 @@ class _$_TransactionTypeModel implements _TransactionTypeModel {
   }
 }
 
-abstract class _TransactionTypeModel implements TransactionTypeModel {
+abstract class _TransactionTypeModel extends TransactionTypeModel {
   factory _TransactionTypeModel(
       {@JsonKey(name: 'id') required final String id,
       @JsonKey(name: 'collectionId') required final String collectionId,
@@ -288,6 +289,7 @@ abstract class _TransactionTypeModel implements TransactionTypeModel {
       required final String key,
       required final String displayName,
       required final int priority}) = _$_TransactionTypeModel;
+  _TransactionTypeModel._() : super._();
 
   factory _TransactionTypeModel.fromJson(Map<String, dynamic> json) =
       _$_TransactionTypeModel.fromJson;

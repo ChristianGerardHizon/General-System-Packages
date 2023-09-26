@@ -20,9 +20,11 @@ class Transaction with _$Transaction {
     Guest? guest,
     required num fee,
     required num amount,
-    required String remarks,
+    String? remarks,
     required bool isPaid,
     required DateTime date,
+    required bool isDeleted,
+    required bool isVoid,
   }) = _Transaction;
 
   factory Transaction.fromJson(Map<String, dynamic> json) =>

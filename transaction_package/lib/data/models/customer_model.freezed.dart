@@ -195,7 +195,7 @@ class __$$_CustomerModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CustomerModel implements _CustomerModel {
+class _$_CustomerModel extends _CustomerModel {
   _$_CustomerModel(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'collectionId') required this.collectionId,
@@ -204,7 +204,8 @@ class _$_CustomerModel implements _CustomerModel {
       @JsonKey(name: 'updated') required this.updated,
       required this.name,
       required this.description,
-      required this.phoneNumber});
+      required this.phoneNumber})
+      : super._();
 
   factory _$_CustomerModel.fromJson(Map<String, dynamic> json) =>
       _$$_CustomerModelFromJson(json);
@@ -276,7 +277,7 @@ class _$_CustomerModel implements _CustomerModel {
   }
 }
 
-abstract class _CustomerModel implements CustomerModel {
+abstract class _CustomerModel extends CustomerModel {
   factory _CustomerModel(
       {@JsonKey(name: 'id') required final String id,
       @JsonKey(name: 'collectionId') required final String collectionId,
@@ -286,6 +287,7 @@ abstract class _CustomerModel implements CustomerModel {
       required final String name,
       required final String description,
       required final String phoneNumber}) = _$_CustomerModel;
+  _CustomerModel._() : super._();
 
   factory _CustomerModel.fromJson(Map<String, dynamic> json) =
       _$_CustomerModel.fromJson;

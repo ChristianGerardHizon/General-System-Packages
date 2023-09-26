@@ -22,9 +22,11 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
           : Guest.fromJson(json['guest'] as Map<String, dynamic>),
       fee: json['fee'] as num,
       amount: json['amount'] as num,
-      remarks: json['remarks'] as String,
+      remarks: json['remarks'] as String?,
       isPaid: json['isPaid'] as bool,
       date: DateTime.parse(json['date'] as String),
+      isDeleted: json['isDeleted'] as bool,
+      isVoid: json['isVoid'] as bool,
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
@@ -42,4 +44,6 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
       'remarks': instance.remarks,
       'isPaid': instance.isPaid,
       'date': instance.date.toIso8601String(),
+      'isDeleted': instance.isDeleted,
+      'isVoid': instance.isVoid,
     };

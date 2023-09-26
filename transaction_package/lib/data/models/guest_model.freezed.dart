@@ -195,7 +195,7 @@ class __$$_GuestModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GuestModel implements _GuestModel {
+class _$_GuestModel extends _GuestModel {
   _$_GuestModel(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'collectionId') required this.collectionId,
@@ -204,7 +204,8 @@ class _$_GuestModel implements _GuestModel {
       @JsonKey(name: 'updated') required this.updated,
       required this.name,
       required this.description,
-      required this.phoneNumber});
+      required this.phoneNumber})
+      : super._();
 
   factory _$_GuestModel.fromJson(Map<String, dynamic> json) =>
       _$$_GuestModelFromJson(json);
@@ -276,7 +277,7 @@ class _$_GuestModel implements _GuestModel {
   }
 }
 
-abstract class _GuestModel implements GuestModel {
+abstract class _GuestModel extends GuestModel {
   factory _GuestModel(
       {@JsonKey(name: 'id') required final String id,
       @JsonKey(name: 'collectionId') required final String collectionId,
@@ -286,6 +287,7 @@ abstract class _GuestModel implements GuestModel {
       required final String name,
       required final String description,
       required final String phoneNumber}) = _$_GuestModel;
+  _GuestModel._() : super._();
 
   factory _GuestModel.fromJson(Map<String, dynamic> json) =
       _$_GuestModel.fromJson;
