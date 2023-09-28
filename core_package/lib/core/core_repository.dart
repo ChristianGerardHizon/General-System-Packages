@@ -18,4 +18,9 @@ class CoreRepository {
   RecordService get authCol => server.collection(config.users);
 
   RecordService get productCol => server.collection(config.products);
+
+  RecordService get transactionsCol => server.collection(config.transactions);
+
+  RecordService get transactionsTypesCol =>
+      server.collection(config.transactionTypes);
 }

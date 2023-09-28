@@ -50,20 +50,29 @@ class TransactionModel with _$TransactionModel {
         isVoid: isVoid,
       );
 
-  static Map<String, dynamic> toJsonBody(Transaction transaction) {
-    return {
-      'id': transaction.id,
-      'type': transaction.type.id,
-      'customer': transaction.customer?.id,
-      'guest': transaction.guest?.id,
-      'fee': transaction.fee,
-      'amount': transaction.amount,
-      'remarks': transaction.remarks,
-      'isPaid': transaction.isPaid,
-      'date': transaction.date.toIso8601String(),
-      'isDeleted': transaction.isDeleted,
-      'isVoid': transaction.isVoid,
-    };
+  static TransactionModel fromEntity(Transaction transaction) {
+    return TransactionModel(
+      amount: transaction.amount,
+      collectionId: transaction.collectionId,
+      collectionName: transaction.collectionName,
+      created: transaction.created,
+      date: transaction.date,
+      fee: transaction.fee,
+      id: transaction.id,
+      isPaid: transaction.isPaid,
+      remarks: transaction.remarks,
+      updated: transaction.updated,
+      isDeleted: transaction.isDeleted,
+      isVoid: transaction.isVoid,
+      type: transaction.type.id,
+      customer: transaction.customer?.id,
+      guest: transaction.guest?.id,
+      expand: TransactionExpandModel.fromEntity(
+        type: transaction.type,
+        customer: transaction.customer,
+        guest: transaction.guest,
+      ),
+    );
   }
 
   factory TransactionModel.fromJson(Map<String, dynamic> json) =>

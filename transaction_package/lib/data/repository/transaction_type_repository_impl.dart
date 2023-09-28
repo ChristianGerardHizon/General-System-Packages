@@ -1,21 +1,21 @@
 import 'dart:async';
 
-import 'package:transaction_package/core/extension.dart';
 import 'package:transaction_package/transaction_package.dart';
 import 'package:core_package/core_package.dart';
 
-class TransactionRepositoryImpl implements TransactionRepository {
-  TransactionRepositoryImpl(this.core);
+class TransactionTypeRepositoryImpl implements TransactionTypeRepository {
+  TransactionTypeRepositoryImpl(this.core);
 
   final CoreRepository core;
 
-  final String expandValues = 'customer,guest,type';
-  RecordService get _col => core.transactionsCol;
+  final String expandValues = '';
+  RecordService get _col => core.transactionsTypesCol;
 
   // Reusable error handling function
   DataState<T> _handleError<T>(
       dynamic e, StackTrace stackTrace, String methodName) {
-    flog.e('TransactionRepo[$methodName] ', error: e, stackTrace: stackTrace);
+    flog.e('TransactionTypeRepo[$methodName] ',
+        error: e, stackTrace: stackTrace);
 
     if (e is ClientException) {
       final error = PBErrorResponse.fromJson(e.response);
@@ -26,13 +26,11 @@ class TransactionRepositoryImpl implements TransactionRepository {
   }
 
   @override
-  Future<DataState<Transaction>> create(TransactionCreateParams params) async {
+  Future<DataState<TransactionType>> create(
+      TransactionTypeCreateParams params) async {
     try {
-      final result = await _col.create(
-        body: params.toJson(),
-        expand: expandValues,
-      );
-      final model = TransactionModel.fromJson(result.toJson());
+      final result = await _col.create(body: params.toJson());
+      final model = TransactionTypeModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
     } catch (error, stackTrace) {
       return _handleError(error, stackTrace, 'create');
@@ -40,17 +38,15 @@ class TransactionRepositoryImpl implements TransactionRepository {
   }
 
   @override
-  Future<DataState<Transaction>> update(
-    TransactionUpdateParams params,
-  ) async {
+  Future<DataState<TransactionType>> update(TransactionType transaction) async {
     try {
-      flog.d(params.toJson().removeNullValues());
+      var tModel = TransactionTypeModel.fromEntity(transaction);
       final result = await _col.update(
-        params.id,
-        body: params.toJson().removeNullValues(),
+        transaction.id,
+        body: tModel.toJson(),
         expand: expandValues,
       );
-      final model = TransactionModel.fromJson(result.toJson());
+      final model = TransactionTypeModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
     } catch (error, stackTrace) {
       return _handleError(error, stackTrace, 'update');
@@ -58,10 +54,10 @@ class TransactionRepositoryImpl implements TransactionRepository {
   }
 
   @override
-  Future<DataState<Transaction>> get(String id) async {
+  Future<DataState<TransactionType>> get(String id) async {
     try {
       final result = await _col.getOne(id, expand: expandValues);
-      final model = TransactionModel.fromJson(result.toJson());
+      final model = TransactionTypeModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
     } catch (error, stackTrace) {
       return _handleError(error, stackTrace, 'get');
@@ -79,7 +75,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
   }
 
   @override
-  Future<DataState<PBRecord<List<Transaction>>>> list(
+  Future<DataState<PBRecord<List<TransactionType>>>> list(
       {PageOptions? options}) async {
     try {
       final result = await _col.getList(
@@ -88,7 +84,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
         perPage: options?.perPage ?? 30,
         expand: expandValues,
       );
-      final model = TransactionListModel.fromJson(result.toJson());
+      final model = TransactionTypeListModel.fromJson(result.toJson());
       return DataSuccess(model.toEntity());
     } catch (error, stackTrace) {
       return _handleError(error, stackTrace, 'list');
@@ -96,12 +92,12 @@ class TransactionRepositoryImpl implements TransactionRepository {
   }
 
   // @override
-  // Future<DataState<Stream<TransactionSubscriptionModel>>> subscribe(
+  // Future<DataState<Stream<TransactionTypeSubscriptionModel>>> subscribe(
   //     String topic) async {
   //   try {
-  //     final controller = StreamController<TransactionSubscriptionModel>();
+  //     final controller = StreamController<TransactionTypeSubscriptionModel>();
   //     _col.subscribe(topic, (e) {
-  //       controller.sink.add(TransactionSubscriptionModel.fromJson(e.toJson()));
+  //       controller.sink.add(TransactionTypeSubscriptionModel.fromJson(e.toJson()));
   //     });
   //     return DataSuccess(controller.stream);
   //   } catch (e) {

@@ -8,7 +8,7 @@ abstract class TransactionRepository {
 
   Future<DataState<Transaction>> create(TransactionCreateParams params);
 
-  Future<DataState<Transaction>> update(Transaction sp);
+  Future<DataState<Transaction>> update(TransactionUpdateParams sp);
 
   Future<DataState<void>> delete(String id);
 }
